@@ -306,7 +306,7 @@ a {
 
 
 .lore {
-  & p { margin-top: var(--space-4); }
+  & p + p { margin-top: var(--space-4); }
 
   & .reading-list {
     margin-block-start: var(--space-2);
