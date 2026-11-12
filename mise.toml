@@ -1,7 +1,6 @@
 [tools]
 go = "1.25.6"
 "github:a-h/templ" = { version = "0.3.1020", exe = "templ" }
-"go:github.com/peterszarvas94/templucide/cmd/templucide" = "latest"
 
 [tasks.generate]
 run = "templ generate"
@@ -34,23 +33,3 @@ run = "templ fmt -fail . && go vet ./..."
 [tasks.docker]
 description = "Build and run the production image (Caddy) on port 8080"
 run = "docker build -t portfolio . && docker run --rm -p 8080:8080 portfolio"
-
-[tasks.icons-list]
-description = "List Lucide icons in the project set"
-dir = "templates/icons"
-run = "templucide list --output ."
-
-[tasks.icons-add]
-description = "Add Lucide icon(s): mise run icons-add -- name"
-dir = "templates/icons"
-run = "templucide add --output . \"$@\" && templ fmt . && templ generate ."
-
-[tasks.icons-remove]
-description = "Remove Lucide icon(s): mise run icons-remove -- name"
-dir = "templates/icons"
-run = "templucide remove --output . \"$@\" && templ fmt . && templ generate ."
-
-[tasks.icons-sync]
-description = "Regenerate the icon templ files from the set"
-dir = "templates/icons"
-run = "templucide sync --output . && templ fmt . && templ generate ."

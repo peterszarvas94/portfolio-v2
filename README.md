@@ -17,9 +17,9 @@ Career content lives in `templates/page.templ`. Employer year ranges come from t
 
 `static/style.css` uses native CSS nesting and shared `:root` variables. IBM Plex Mono has four text roles: title (24px, bold), section heading (20px, bold), body (16px, regular; company and project headings bold), and secondary text (13px, regular). Screen sizes use rem units. Dates, notes and project descriptions share the same muted style. Print overrides the four size tokens to 18/12/10/9pt. Change the role tokens rather than adding one-off sizes.
 
-## Favicon and icons
+## Favicon
 
-Icons are Lucide icons generated as templ components by [templucide](https://github.com/peterszarvas94/templucide) into `templates/icons` (`mise run icons-add -- <name>`, `icons-remove`, `icons-list`, `icons-sync`). The favicon (`templates/favicon.templ`) is the `square-code` icon in an amber box with an inked border and the buttons' hard shadow; it is inlined in the page as an SVG data URI, so there is no favicon file.
+The favicon is a "P" in IBM Plex Mono Bold, black on an amber square with an inked border. `templates/favicon.go` reads the bold font file at build time and converts the glyph outline to an SVG path (an SVG image cannot load web fonts), and the page inlines the result as an SVG data URI, so there is no favicon file.
 
 ## Résumé PDF
 
