@@ -264,6 +264,23 @@ a {
 }
 
 .dates, .aside { font-size: var(--text-small); color: var(--muted); }
+.site { font-size: var(--text-small); white-space: nowrap; }
+
+/* Project URLs wrap as a group: beside every name while the longest pair fits
+   ("Wedding invitation" + its URL in Plex Mono, 0.6em per character), all under their names below that. */
+.projects { container-type: inline-size; }
+
+@container (max-width: 24rem) {
+  .projects .site { flex-basis: 100%; }
+}
+
+/* Footer: the text and the button share a line and wrap cleanly. */
+.home-extra footer p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+}
 
 .next {
   padding-block-end: var(--space-4);
