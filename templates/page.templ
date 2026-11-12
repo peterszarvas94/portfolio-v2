@@ -20,7 +20,7 @@ templ Page() {
 					<a class="btn btn-amber" href="/resume.pdf" download="Peter-Szarvas-resume.pdf">Save resume <span aria-hidden="true">↓</span></a>
 					<button type="button" class="btn" onclick="document.fonts.ready.then(() => window.print())">Print resume</button>
 				</div>
-				<button type="button" class="btn sheet-toggle" aria-controls="typesheet" aria-expanded="false" onclick="const s = document.getElementById('typesheet'); s.hidden = !s.hidden; this.setAttribute('aria-expanded', !s.hidden)">
+				<button type="button" class="btn sheet-toggle" aria-controls="typesheet" aria-expanded="false">
 					<span class="lamp" aria-hidden="true"></span>Spec sheet
 				</button>
 			</nav>
@@ -63,6 +63,27 @@ templ Page() {
 				</div>
 			</main>
 			@TypeSheet()
+			<script>
+				// Toggle the spec sheet. When it opens below the visible screen (narrow layouts),
+				// scroll to it and move focus there; CSS scroll-behavior keeps reduced motion instant.
+				document
+					.querySelector(".sheet-toggle")
+					.addEventListener("click", (event) => {
+						const sheet = document.getElementById("typesheet");
+						sheet.hidden = !sheet.hidden;
+						event.currentTarget.setAttribute(
+							"aria-expanded",
+							String(!sheet.hidden),
+						);
+						if (
+							!sheet.hidden &&
+							sheet.getBoundingClientRect().top > innerHeight
+						) {
+							sheet.scrollIntoView({ block: "start" });
+							sheet.focus({ preventScroll: true });
+						}
+					});
+			</script>
 		</body>
 	</html>
 }

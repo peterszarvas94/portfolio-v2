@@ -309,8 +309,13 @@ a {
 }
 
 /* Experiment: type sheet of the page's building blocks, screen only */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
 .typesheet {
   box-sizing: border-box;
+  scroll-margin-top: var(--space-4);
   max-width: var(--measure);
   margin: var(--space-6) auto 0;
   border: 1px solid var(--ink);
@@ -320,6 +325,8 @@ a {
   line-height: 1.4;
 
   & h2, & h3 { font-size: inherit; letter-spacing: .06em; text-transform: uppercase; }
+  /* Focused by script when the toggle scrolls to it; keep the ring for keyboard users only. */
+  &:focus:not(:focus-visible) { outline: none; }
   & code { font: inherit; }
 }
 
