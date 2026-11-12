@@ -12,6 +12,7 @@ templ Page() {
 			<link rel="icon" type="image/svg+xml" href={ templ.SafeURL(faviconHref()) }/>
 			<link rel="preload" href="/static/fonts/IBMPlexMono-Regular.ttf" as="font" type="font/ttf" crossorigin/>
 			<link rel="stylesheet" href={ templ.SafeURL(Stylesheet) }/>
+			<script type="module" src={ Script }></script>
 		</head>
 		<body>
 			<a class="skip-link" href="#content">Skip to content</a>
@@ -20,7 +21,7 @@ templ Page() {
 					<a class="btn btn-amber" href="/resume.pdf" download="Peter-Szarvas-resume.pdf">Save resume <span aria-hidden="true">↓</span></a>
 					<button type="button" class="btn" onclick="document.fonts.ready.then(() => window.print())">Print resume</button>
 				</div>
-				<button type="button" class="btn sheet-toggle" aria-controls="typesheet" aria-expanded="false" onclick="const s = document.getElementById('typesheet'); s.hidden = !s.hidden; this.setAttribute('aria-expanded', !s.hidden)">
+				<button type="button" class="btn sheet-toggle" aria-controls="typesheet" aria-expanded="false">
 					<span class="lamp" aria-hidden="true"></span>Spec sheet
 				</button>
 			</nav>

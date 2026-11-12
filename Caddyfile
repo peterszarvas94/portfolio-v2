@@ -23,11 +23,11 @@
 
 	header /resume.pdf Content-Disposition `attachment; filename="Peter-Szarvas-resume.pdf"`
 
-	# Fonts never change and the stylesheet is content-hashed by the build (style.<hash>.css),
-	# so both are cached forever; everything else revalidates so deploys show up immediately.
-	@immutable path_regexp ^/static/(fonts/.+|style\.[0-9a-f]{10}\.css)$
+	# Fonts never change and the stylesheet and script are content-hashed by the build,
+	# so they are cached forever; everything else revalidates so deploys show up immediately.
+	@immutable path_regexp ^/static/(fonts/.+|style\.[0-9a-f]{10}\.css|sheet\.[0-9a-f]{10}\.js)$
 	header @immutable Cache-Control "public, max-age=31536000, immutable"
-	@revalidate not path_regexp ^/static/(fonts/.+|style\.[0-9a-f]{10}\.css)$
+	@revalidate not path_regexp ^/static/(fonts/.+|style\.[0-9a-f]{10}\.css|sheet\.[0-9a-f]{10}\.js)$
 	header @revalidate Cache-Control "no-cache"
 
 	file_server

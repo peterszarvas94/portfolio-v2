@@ -10,6 +10,9 @@ import (
 // content-hashed name (see cmd/build) so the file can be cached forever.
 var Stylesheet = "/static/style.css"
 
+// Script is the page's ES module (the spec sheet toggle), fingerprinted the same way.
+var Script = "/static/sheet.js"
+
 // faviconHref draws the favicon once and inlines it as an SVG data URI,
 // so the icon ships inside the static HTML with no separate file.
 var faviconHref = sync.OnceValue(func() string {
