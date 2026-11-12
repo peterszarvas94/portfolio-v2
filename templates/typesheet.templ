@@ -1,0 +1,110 @@
+package templates
+
+// TypeSheet is an experiment: a data sheet of the page's building blocks.
+// Specimens use the real tokens and components, so they stay true to the page.
+templ TypeSheet() {
+	<aside id="typesheet" class="typesheet" aria-labelledby="ts-title" hidden>
+		<header class="ts-head">
+			<p class="ts-part">PS-01</p>
+			<h2 id="ts-title">Spec sheet</h2>
+			<p class="ts-sub">Building blocks of this page</p>
+		</header>
+		<div class="ts-colorbar" aria-hidden="true">
+			<span style="--swatch: var(--ink)"></span>
+			<span style="--swatch: var(--muted)"></span>
+			<span style="--swatch: var(--shadow)"></span>
+			<span style="--swatch: var(--canvas)"></span>
+			<span style="--swatch: var(--amber)"></span>
+			<span style="--swatch: var(--green)"></span>
+			<span style="--swatch: var(--red)"></span>
+		</div>
+		<section class="ts-block" aria-labelledby="ts-face">
+			<h3 id="ts-face"><span class="ts-num">01</span> Typeface</h3>
+			<p class="ts-specimen">Aa Bb 0123 őű →</p>
+			<dl class="ts-spec">
+				<dt>Family</dt>
+				<dd>IBM Plex Mono</dd>
+				<dt>Weights</dt>
+				<dd>400 / 700</dd>
+				<dt>Ligatures</dt>
+				<dd>off</dd>
+				<dt>Leading</dt>
+				<dd>1.5 / 1.25</dd>
+			</dl>
+		</section>
+		<section class="ts-block" aria-labelledby="ts-roles">
+			<h3 id="ts-roles"><span class="ts-num">02</span> Type roles</h3>
+			<table class="ts-table">
+				<thead><tr><th scope="col">Role</th><th scope="col">Tag</th><th scope="col">Size</th><th scope="col">Wt</th></tr></thead>
+				<tbody>
+					<tr><th scope="row" class="ts-role-title">Title</th><td>h1</td><td>24</td><td>700</td></tr>
+					<tr><th scope="row" class="ts-role-heading">Heading</th><td>h2</td><td>20</td><td>700</td></tr>
+					<tr><th scope="row" class="ts-role-body">Body</th><td>p</td><td>16</td><td>400</td></tr>
+					<tr><th scope="row" class="ts-role-small">Small</th><td>.aside</td><td>13</td><td>400</td></tr>
+				</tbody>
+			</table>
+			<p class="ts-note">px on screen; print uses 18 / 12 / 10 / 9 pt.</p>
+		</section>
+		<section class="ts-block" aria-labelledby="ts-colour">
+			<h3 id="ts-colour"><span class="ts-num">03</span> Colour</h3>
+			<ul class="ts-swatches">
+				<li><span class="ts-swatch" style="--swatch: var(--ink)"></span><code>--ink</code> #111</li>
+				<li><span class="ts-swatch" style="--swatch: var(--muted)"></span><code>--muted</code> #5c5c5c</li>
+				<li><span class="ts-swatch" style="--swatch: var(--paper)"></span><code>--paper</code> #fff</li>
+				<li><span class="ts-swatch" style="--swatch: var(--canvas)"></span><code>--canvas</code> #e8e7e3</li>
+				<li><span class="ts-swatch" style="--swatch: var(--shadow)"></span><code>--shadow</code> #b8b7b2</li>
+				<li class="ts-group">Signal: actions and state</li>
+				<li><span class="ts-swatch" style="--swatch: var(--amber)"></span><code>--amber</code> #ffb700</li>
+				<li><span class="ts-swatch" style="--swatch: var(--green)"></span><code>--green</code> #00794c</li>
+				<li><span class="ts-swatch" style="--swatch: var(--red)"></span><code>--red</code> #e0242b</li>
+			</ul>
+		</section>
+		<section class="ts-block" aria-labelledby="ts-space">
+			<h3 id="ts-space"><span class="ts-num">04</span> Spacing</h3>
+			<ul class="ts-scale">
+				<li><code>--space-1</code><span class="ts-bar" style="--w: var(--space-1)"></span><span>4</span></li>
+				<li><code>--space-2</code><span class="ts-bar" style="--w: var(--space-2)"></span><span>8</span></li>
+				<li><code>--space-3</code><span class="ts-bar" style="--w: var(--space-3)"></span><span>12</span></li>
+				<li><code>--space-4</code><span class="ts-bar" style="--w: var(--space-4)"></span><span>16</span></li>
+				<li><code>--space-5</code><span class="ts-bar" style="--w: var(--space-5)"></span><span>24</span></li>
+				<li><code>--space-6</code><span class="ts-bar" style="--w: var(--space-6)"></span><span>36</span></li>
+				<li><code>--space-7</code><span class="ts-bar" style="--w: var(--space-7)"></span><span>48</span></li>
+			</ul>
+		</section>
+		<section class="ts-block" aria-labelledby="ts-parts">
+			<h3 id="ts-parts"><span class="ts-num">05</span> Timeline</h3>
+			<div class="ts-figure" aria-hidden="true">
+				<div class="stage-body">
+					@Arrow()
+					<div class="jobs">
+						<div class="job"><p><b>Company</b></p><p class="aside">step marker</p></div>
+						<div class="job"><p><b>Next</b></p><p class="aside">arrow continues</p></div>
+					</div>
+				</div>
+			</div>
+			<p class="ts-caption">Fig. 1. Live component.</p>
+			<dl class="ts-spec">
+				<dt>Rail</dt>
+				<dd>3ch (2ch &lt; 600px)</dd>
+				<dt>Line</dt>
+				<dd>1.5px</dd>
+				<dt>Step</dt>
+				<dd>9px circle</dd>
+			</dl>
+		</section>
+		<section class="ts-block" aria-labelledby="ts-print">
+			<h3 id="ts-print"><span class="ts-num">06</span> Output</h3>
+			<dl class="ts-spec">
+				<dt>Screen</dt>
+				<dd>46rem sheet</dd>
+				<dt>Print</dt>
+				<dd>A4, 0 margin</dd>
+				<dt>Padding</dt>
+				<dd>16 × 18mm</dd>
+				<dt>Build</dt>
+				<dd>templ → static</dd>
+			</dl>
+		</section>
+		<footer class="ts-foot">Specifications subject to change without notice.</footer>
+	</aside>
+}

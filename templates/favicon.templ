@@ -1,0 +1,14 @@
+package templates
+
+import "portfolio/templates/icons"
+
+// Favicon is the Lucide square-code icon in a signal button: an amber box with an inked
+// border and the buttons' hard offset shadow. Colours mirror the CSS tokens
+// (--amber, --ink, --shadow); an inlined SVG image can't read them.
+templ Favicon() {
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" color="#111">
+		<rect x="3" y="3" width="29" height="29" fill="#b8b7b2"></rect>
+		<rect x="0.75" y="0.75" width="27.5" height="27.5" fill="#ffb700" stroke="#111" stroke-width="1.5"></rect>
+		@icons.SquareCode(templ.Attributes{"x": "3", "y": "3", "width": "23", "height": "23"})
+	</svg>
+}

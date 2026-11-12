@@ -1,0 +1,121 @@
+package templates
+
+templ Page() {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<meta name="description" content="Péter Szarvas. From systems administration to full-stack development. Building simple software that works."/>
+			<title>Péter Szarvas</title>
+			<meta name="color-scheme" content="light"/>
+			<link rel="icon" type="image/svg+xml" href={ templ.SafeURL(faviconHref()) }/>
+			<link rel="preload" href="/static/fonts/IBMPlexMono-Regular.ttf" as="font" type="font/ttf" crossorigin/>
+			<link rel="stylesheet" href={ templ.SafeURL(Stylesheet) }/>
+		</head>
+		<body>
+			<a class="skip-link" href="#content">Skip to content</a>
+			<nav class="page-nav" aria-label="Resume">
+				<div class="resume-actions">
+					<a class="btn btn-amber" href="/resume.pdf" download="Peter-Szarvas-resume.pdf">Save resume <span aria-hidden="true">↓</span></a>
+					<button type="button" class="btn" onclick="document.fonts.ready.then(() => window.print())">Print resume</button>
+				</div>
+				<button type="button" class="btn sheet-toggle" aria-controls="typesheet" aria-expanded="false" onclick="const s = document.getElementById('typesheet'); s.hidden = !s.hidden; this.setAttribute('aria-expanded', !s.hidden)">
+					<span class="lamp" aria-hidden="true"></span>Spec sheet
+				</button>
+			</nav>
+			<main id="content" class="paper">
+				<header class="identity">
+					<h1>Péter Szarvas</h1>
+					<p class="intro">I build software. And the things around it.</p>
+					<address>
+						<a href="mailto:contact@peterszarvas.hu">contact@peterszarvas.hu</a>
+						<a href="https://github.com/peterszarvas94">github.com/peterszarvas94</a>
+						<a href="https://www.linkedin.com/in/peterszarvas94/">linkedin.com/in/peterszarvas94</a>
+					</address>
+				</header>
+				@Career()
+				<div class="home-extra">
+					<section aria-labelledby="projects-heading">
+						<h2 id="projects-heading">A few things I've built</h2>
+						<ul class="projects">
+							<li><h3><a href="https://bandcash.app">Bandcash</a></h3><p>Events, expenses and fair payouts for music bands.</p></li>
+							<li><h3><a href="https://szarvaspongrac.hu">Pongrác Szarvas</a></h3><p>An artist's portfolio. A place for the work to speak.</p></li>
+							<li><h3><a href="https://szeremletanc.hu">Szeremle Tánc</a></h3><p>A home on the web for a folk dance group.</p></li>
+							<li><h3><a href="https://pantlikazenekar.hu">Pántlika Zenekar</a></h3><p>A website for a folk music band.</p></li>
+							<li><h3><a href="https://github.com/peterszarvas94/weddingsite">Wedding invitation</a></h3><p>A small website for a big day.</p></li>
+						</ul>
+					</section>
+					<section class="lore" aria-labelledby="lore-heading">
+						<h2 id="lore-heading">A little more of the story</h2>
+						<p>I started with servers, moved into applications, and kept wanting to understand the whole thing. These days that means building the interface, writing the backend, and keeping it running.</p>
+						<p>I like simple code and small tools. Go, server-rendered HTML, and fewer moving parts when they do the job. React and TypeScript when they fit.</p>
+						<p>Bandcash brings that thinking to the world of music bands: less time untangling who owes what, more time for the music.</p>
+						<p>On my reading list:</p>
+						<ul class="reading-list">
+							<li><a href="https://hypermedia.systems/">Hypermedia Systems</a></li>
+							<li><a href="https://grugbrain.dev/">The Grug Brained Developer</a></li>
+							<li><a href="https://www.oreilly.com/library/view/we-programmers-a/9780135344248/">We, Programmers</a></li>
+							<li><a href="https://basecamp.com/books#rework">Rework</a></li>
+						</ul>
+					</section>
+					<footer><p>Have something in mind? <a href="mailto:contact@peterszarvas.hu">Let's talk.</a></p></footer>
+				</div>
+			</main>
+			@TypeSheet()
+		</body>
+	</html>
+}
+
+templ Arrow() {
+	<span class="arrow" aria-hidden="true">
+		<svg viewBox="0 0 10 6" fill="none"><path d="M1 1 L5 5 L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+	</span>
+}
+
+templ Career() {
+	<ol class="career" aria-label="My path">
+		<li class="stage">
+			<h2>System administrator</h2>
+			<div class="stage-body">
+				@Arrow()
+				<div class="jobs">
+					<section class="job" aria-labelledby="ibm-heading">
+						<header class="job-head"><h3 id="ibm-heading">IBM / Kyndryl</h3><p class="dates"><time datetime="2020">2020</time>–<time datetime="2022">2022</time></p></header>
+						<ul><li>Managed Windows servers and hybrid Microsoft Azure environments.</li><li>Learned to keep things running, not just get them running.</li></ul>
+					</section>
+				</div>
+			</div>
+		</li>
+		<li class="stage">
+			<h2>Fullstack developer</h2>
+			<div class="stage-body">
+				@Arrow()
+				<div class="jobs">
+					<section class="job" aria-labelledby="kyndryl-heading">
+						<header class="job-head"><h3 id="kyndryl-heading">Kyndryl</h3><p class="dates"><time datetime="2022">2022</time>–<time datetime="2024">2024</time></p></header>
+						<ul><li>Built an internal business lead tracker in a two-person team.</li><li>React, JavaScript and Java.</li></ul>
+					</section>
+					<section class="job" aria-labelledby="eviden-heading">
+						<header class="job-head"><h3 id="eviden-heading">Eviden / Atos</h3><p class="dates"><time datetime="2024">2024</time>–present</p></header>
+						<ul><li>Building a government application in an international team.</li><li>React, TypeScript, Node.js and NestJS.</li></ul>
+					</section>
+				</div>
+			</div>
+		</li>
+		<li class="stage">
+			<h2>Agentic programmer / designer / devops</h2>
+			<div class="stage-body">
+				@Arrow()
+				<div class="jobs">
+					<section class="job" aria-labelledby="bandcash-heading">
+						<header class="job-head"><h3 id="bandcash-heading"><a href="https://bandcash.app">Bandcash</a></h3></header>
+						<p class="aside">Independent work, alongside my day job.</p>
+						<ul><li>Building and operating a payment splitting app for music bands.</li><li>Go, templ, Datastar, SQLite. From the first screen to deployment, with AI in the workflow.</li></ul>
+					</section>
+					<div class="job next"><p><a class="btn btn-amber" href="mailto:contact@peterszarvas.hu">Working with you?</a></p><p>Something useful, built together.</p></div>
+				</div>
+			</div>
+		</li>
+	</ol>
+}
