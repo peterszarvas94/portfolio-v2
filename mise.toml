@@ -27,6 +27,10 @@ templ generate -watch \
 description = "Regenerate static/resume.pdf with Chromium; commit the result"
 run = "templ generate && go run ./cmd/resumepdf"
 
+[tasks.brand]
+description = "Regenerate the logo, icons and link-preview image in static/brand/; commit the result"
+run = "templ generate && go run ./cmd/brand"
+
 [tasks.check]
 run = "templ fmt -fail . && go vet ./..."
 
