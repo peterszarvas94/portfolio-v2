@@ -78,7 +78,7 @@ func build() error {
 		if err != nil {
 			return err
 		}
-		if path == "static/resume.pdf" || path == "static/style.css" {
+		if path == "static/resume.pdf" || fingerprinted[path] {
 			return nil
 		}
 		target := filepath.Join(outDir, path)
@@ -91,18 +91,14 @@ func build() error {
 		return err
 	}
 
-	// Fingerprint the stylesheet: a content-hashed name lets Caddy cache it forever,
-	// and every change gets a new URL, so a deploy can never serve stale CSS.
-	css, err := os.ReadFile("static/style.css")
-	if err != nil {
+	// Fingerprint the stylesheet and script: content-hashed names let Caddy cache them
+	// forever, and every change gets a new URL, so a deploy can never serve stale assets.
+	if templates.Stylesheet, err = fingerprint("style.css"); err != nil {
 		return err
 	}
-	sum := sha256.Sum256(css)
-	name := fmt.Sprintf("style.%x.css", sum[:5])
-	if err := os.WriteFile(filepath.Join(outDir, "static", name), css, 0o644); err != nil {
+	if templates.Script, err = fingerprint("sheet.js"); err != nil {
 		return err
 	}
-	templates.Stylesheet = "/static/" + name
 
 	page, err := os.Create(filepath.Join(outDir, "index.html"))
 	if err != nil {
@@ -113,6 +109,25 @@ func build() error {
 		return fmt.Errorf("render page: %w", err)
 	}
 	return page.Close()
+}
+
+// fingerprinted are the static files published only under a content-hashed name.
+var fingerprinted = map[string]bool{"static/style.css": true, "static/sheet.js": true}
+
+// fingerprint publishes static/<name> as /static/<base>.<hash><ext> (first 10 hex
+// characters of its SHA-256) and returns that URL.
+func fingerprint(name string) (string, error) {
+	data, err := os.ReadFile(filepath.Join("static", name))
+	if err != nil {
+		return "", err
+	}
+	sum := sha256.Sum256(data)
+	ext := filepath.Ext(name)
+	hashed := fmt.Sprintf("%s.%x%s", strings.TrimSuffix(name, ext), sum[:5], ext)
+	if err := os.WriteFile(filepath.Join(outDir, "static", hashed), data, 0o644); err != nil {
+		return "", err
+	}
+	return "/static/" + hashed, nil
 }
 
 func copyFile(src, dst string) error {

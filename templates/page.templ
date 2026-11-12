@@ -12,6 +12,7 @@ templ Page() {
 			<link rel="icon" type="image/svg+xml" href={ templ.SafeURL(faviconHref()) }/>
 			<link rel="preload" href="/static/fonts/IBMPlexMono-Regular.ttf" as="font" type="font/ttf" crossorigin/>
 			<link rel="stylesheet" href={ templ.SafeURL(Stylesheet) }/>
+			<script type="module" src={ Script }></script>
 		</head>
 		<body>
 			<a class="skip-link" href="#content">Skip to content</a>
@@ -63,27 +64,6 @@ templ Page() {
 				</div>
 			</main>
 			@TypeSheet()
-			<script>
-				// Toggle the spec sheet. When it opens below the visible screen (narrow layouts),
-				// scroll to it and move focus there; CSS scroll-behavior keeps reduced motion instant.
-				document
-					.querySelector(".sheet-toggle")
-					.addEventListener("click", (event) => {
-						const sheet = document.getElementById("typesheet");
-						sheet.hidden = !sheet.hidden;
-						event.currentTarget.setAttribute(
-							"aria-expanded",
-							String(!sheet.hidden),
-						);
-						if (
-							!sheet.hidden &&
-							sheet.getBoundingClientRect().top > innerHeight
-						) {
-							sheet.scrollIntoView({ block: "start" });
-							sheet.focus({ preventScroll: true });
-						}
-					});
-			</script>
 		</body>
 	</html>
 }
