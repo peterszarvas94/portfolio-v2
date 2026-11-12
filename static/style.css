@@ -330,8 +330,8 @@ a {
   border: 1px solid var(--ink);
   background: var(--paper);
   box-shadow: 4px 4px 0 var(--shadow);
-  font-size: .75rem;
-  line-height: 1.4;
+  font-size: var(--text-small);
+  line-height: var(--leading-tight);
 
   & h2, & h3 { font-size: inherit; letter-spacing: .06em; text-transform: uppercase; }
   /* Focused by script when the toggle scrolls to it; keep the ring for keyboard users only. */
@@ -343,12 +343,14 @@ a {
   display: grid;
   grid-template-columns: auto 1fr;
   column-gap: var(--space-3);
-  padding: var(--space-3);
+  align-items: stretch;
+  /* No vertical padding here, so the rule after PS-01 runs from edge to edge. */
+  padding: 0 var(--space-3);
   color: var(--paper);
   background: var(--ink);
 
-  & .ts-part { grid-row: span 2; align-self: center; padding-inline-end: var(--space-3); border-inline-end: 1px solid; font-size: var(--text-heading); font-weight: var(--bold); }
-  & .ts-sub { opacity: .75; }
+  & > * { display: flex; align-items: center; padding-block: var(--space-3); }
+  & .ts-part { padding-inline-end: var(--space-3); border-inline-end: 1px solid; font-size: var(--text-heading); font-weight: var(--bold); }
 }
 
 .ts-block {
@@ -492,11 +494,26 @@ a {
   border-top: 1px solid var(--ink);
   text-transform: uppercase;
   letter-spacing: .04em;
-  font-size: .625rem;
+  font-size: inherit;
+}
+
+/* The bottom spec sheet toggle: under the page, right above where the sheet opens.
+   Shown only while the sheet opens below the page (narrower than 72rem); the top one hides then. */
+.sheet-bar {
+  max-width: var(--measure);
+  margin: var(--space-5) auto 0;
+  font-size: var(--text-small);
+}
+
+@media screen and (max-width: 71.99rem) {
+  .page-nav .sheet-toggle { display: none; }
+  .sheet-bar + .typesheet { margin-top: var(--space-3); }
 }
 
 /* Wide screens: while open, the sheet sits right of the page, level with the buttons, and scrolls with it. */
 @media screen and (min-width: 72rem) {
+  .sheet-bar { display: none; }
+
   body:has(.typesheet:not([hidden])) {
     display: grid;
     grid-template-columns: minmax(0, var(--measure)) 20rem;
@@ -552,7 +569,7 @@ a {
   }
 
   /* The story and the call to action stay on screen. */
-  .page-nav, .skip-link, .next, .typesheet, .home-extra { display: none; }
+  .page-nav, .skip-link, .next, .typesheet, .sheet-bar, .home-extra { display: none; }
   /* Links stay clickable in the PDF but print as plain text. */
   a { text-decoration: none; }
 

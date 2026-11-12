@@ -16,11 +16,11 @@ templ Page() {
 			<meta property="og:type" content="website"/>
 			<meta property="og:url" content="https://peterszarvas.hu/"/>
 			<meta property="og:title" content="Péter Szarvas"/>
-			<meta property="og:description" content="I build software."/>
+			<meta property="og:description" content="I build software, and the servers it runs on."/>
 			<meta property="og:image" content="https://peterszarvas.hu/static/brand/og.png"/>
 			<meta property="og:image:width" content="1200"/>
 			<meta property="og:image:height" content="630"/>
-			<meta property="og:image:alt" content="Péter Szarvas: I build software."/>
+			<meta property="og:image:alt" content="Péter Szarvas: I build software, and the servers it runs on."/>
 			<meta name="twitter:card" content="summary_large_image"/>
 			<link rel="preload" href="/static/fonts/IBMPlexMono-Regular.ttf" as="font" type="font/ttf" crossorigin/>
 			<link rel="stylesheet" href={ templ.SafeURL(Stylesheet) }/>
@@ -40,31 +40,35 @@ templ Page() {
 			<main id="content" class="paper">
 				<header class="identity">
 					<h1>Péter Szarvas</h1>
-					<p class="intro">I build software.</p>
+					<p class="intro">I build software, and the servers it runs on.</p>
 					<address>
 						<a href="mailto:contact@peterszarvas.hu">contact@peterszarvas.hu</a>
-						<a href="https://github.com/peterszarvas94">github.com/peterszarvas94</a>
-						<a href="https://www.linkedin.com/in/peterszarvas94/">linkedin.com/in/peterszarvas94</a>
+						<a href="https://github.com/peterszarvas94" target="_blank" rel="noopener">github.com/peterszarvas94</a>
+						<a href="https://www.linkedin.com/in/peterszarvas94/" target="_blank" rel="noopener">linkedin.com/in/peterszarvas94</a>
 					</address>
 				</header>
 				@Career()
 				<div class="home-extra">
 					<section class="lore" aria-labelledby="lore-heading">
-						<h2 id="lore-heading">A little more of the story</h2>
-						<p>I started with servers, moved into applications, and kept wanting to understand the whole thing. These days that means building the interface, writing the backend, and keeping it running.</p>
-						<p>I like simple code and small tools. Go, server-rendered HTML, and fewer moving parts when they do the job. React and TypeScript when they fit.</p>
-						<p>Bandcash brings that thinking to the world of music bands: less time untangling who owes what, more time for the music.</p>
-						<p>On my reading list:</p>
+						<h2 id="lore-heading">Who am I?</h2>
+						<p>I like computers. I want to understand how they work and put them to use wherever I can: building servers and apps, running my homelab, using Linux. Mostly because I love tinkering.</p>
+						<p>I've built with a lot of technologies. These days I stick to simple, powerful tools: Go or Rails, hypermedia libraries like htmx and Datastar, server-rendered apps, plain CSS and JavaScript. I've had my share of frameworks too, like React, Next.js and Astro.</p>
+						<p>A few good books I picked up along the way:</p>
 						<ul class="reading-list">
-							<li><a href="https://hypermedia.systems/">Hypermedia Systems</a></li>
-							<li><a href="https://grugbrain.dev/">The Grug Brained Developer</a></li>
-							<li><a href="https://www.oreilly.com/library/view/we-programmers-a/9780135344248/">We, Programmers</a></li>
-							<li><a href="https://basecamp.com/books#rework">Rework</a></li>
+							<li><a href="https://hypermedia.systems/" target="_blank" rel="noopener">Hypermedia Systems</a></li>
+							<li><a href="https://grugbrain.dev/" target="_blank" rel="noopener">The Grug Brained Developer</a></li>
+							<li><a href="https://www.oreilly.com/library/view/we-programmers-a/9780135344248/" target="_blank" rel="noopener">We, Programmers</a></li>
+							<li><a href="https://basecamp.com/books#rework" target="_blank" rel="noopener">Rework</a></li>
 						</ul>
 					</section>
-					<footer><p>Have something in mind? <a class="btn btn-green" href="mailto:contact@peterszarvas.hu">Let's talk</a></p></footer>
+					<footer><p>Building is fun, and I don't plan to stop. Maybe I can build something for you? <a class="btn btn-green" href="mailto:contact@peterszarvas.hu">Let's talk</a></p></footer>
 				</div>
 			</main>
+			<div class="sheet-bar">
+				<button type="button" class="btn sheet-toggle" aria-controls="typesheet" aria-expanded="false">
+					<span class="lamp" aria-hidden="true"></span>Spec sheet
+				</button>
+			</div>
 			@TypeSheet()
 		</body>
 	</html>
@@ -112,26 +116,26 @@ templ Career() {
 				@Arrow()
 				<div class="jobs projects">
 					<section class="job" aria-labelledby="bandcash-heading">
-						<header class="job-head"><h3 id="bandcash-heading">Bandcash</h3><a class="site" href="https://bandcash.app">bandcash.app</a></header>
+						<header class="job-head"><h3 id="bandcash-heading">Bandcash</h3><a class="site" href="https://bandcash.app" target="_blank" rel="noopener">bandcash.app</a></header>
 						<ul><li>Building and operating a payment splitting app for music bands.</li><li>Go, templ, Datastar, SQLite.</li></ul>
 					</section>
 					<section class="job" aria-labelledby="pongrac-heading">
-						<header class="job-head"><h3 id="pongrac-heading">Szarvas Pongrác</h3><a class="site" href="https://szarvaspongrac.hu">szarvaspongrac.hu</a></header>
+						<header class="job-head"><h3 id="pongrac-heading">Szarvas Pongrác</h3><a class="site" href="https://szarvaspongrac.hu" target="_blank" rel="noopener">szarvaspongrac.hu</a></header>
 						<ul><li>An artist's portfolio.</li></ul>
 					</section>
 					<section class="job" aria-labelledby="szeremle-heading">
-						<header class="job-head"><h3 id="szeremle-heading">Szeremle Tánc</h3><a class="site" href="https://szeremletanc.hu">szeremletanc.hu</a></header>
+						<header class="job-head"><h3 id="szeremle-heading">Szeremle Tánc</h3><a class="site" href="https://szeremletanc.hu" target="_blank" rel="noopener">szeremletanc.hu</a></header>
 						<ul><li>A page for a folk dance group.</li></ul>
 					</section>
 					<section class="job" aria-labelledby="pantlika-heading">
-						<header class="job-head"><h3 id="pantlika-heading">Pántlika Zenekar</h3><a class="site" href="https://pantlikazenekar.hu">pantlikazenekar.hu</a></header>
+						<header class="job-head"><h3 id="pantlika-heading">Pántlika Zenekar</h3><a class="site" href="https://pantlikazenekar.hu" target="_blank" rel="noopener">pantlikazenekar.hu</a></header>
 						<ul><li>A website for a folk music band.</li></ul>
 					</section>
 					<section class="job" aria-labelledby="wedding-heading">
-						<header class="job-head"><h3 id="wedding-heading">Wedding invitation</h3><a class="site" href="https://wedding.peterszarvas.hu">wedding.peterszarvas.hu</a></header>
+						<header class="job-head"><h3 id="wedding-heading">Wedding invitation</h3><a class="site" href="https://wedding.peterszarvas.hu" target="_blank" rel="noopener">wedding.peterszarvas.hu</a></header>
 						<ul><li>A small website for a big day.</li></ul>
 					</section>
-					<div class="job next"><p><a class="btn btn-amber" href="mailto:contact@peterszarvas.hu">Your project?</a></p><ul><li>Something useful, built together.</li></ul></div>
+					<div class="job next"><p><a class="btn btn-amber" href="mailto:contact@peterszarvas.hu">Your project here?</a></p><ul><li>Something nice and useful, built together.</li></ul></div>
 				</div>
 			</div>
 		</li>

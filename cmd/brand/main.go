@@ -26,7 +26,7 @@ func main() {
 		{"apple-touch-icon.png", func() ([]byte, error) { return templates.LogoPNG(180) }},
 		{"favicon.ico", templates.FaviconICO},
 		{"og.png", func() ([]byte, error) {
-			return templates.OGImage("Péter Szarvas", "I build software.", "peterszarvas.hu")
+			return templates.OGImage("Péter Szarvas", "I build software, and the servers it runs on.", "peterszarvas.hu")
 		}},
 	}
 	for _, f := range files {
