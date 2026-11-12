@@ -16,11 +16,11 @@ templ Page() {
 			<meta property="og:type" content="website"/>
 			<meta property="og:url" content="https://peterszarvas.hu/"/>
 			<meta property="og:title" content="Péter Szarvas"/>
-			<meta property="og:description" content="I build software. And the things around it."/>
+			<meta property="og:description" content="I build software."/>
 			<meta property="og:image" content="https://peterszarvas.hu/static/brand/og.png"/>
 			<meta property="og:image:width" content="1200"/>
 			<meta property="og:image:height" content="630"/>
-			<meta property="og:image:alt" content="Péter Szarvas: I build software. And the things around it."/>
+			<meta property="og:image:alt" content="Péter Szarvas: I build software."/>
 			<meta name="twitter:card" content="summary_large_image"/>
 			<link rel="preload" href="/static/fonts/IBMPlexMono-Regular.ttf" as="font" type="font/ttf" crossorigin/>
 			<link rel="stylesheet" href={ templ.SafeURL(Stylesheet) }/>
@@ -40,7 +40,7 @@ templ Page() {
 			<main id="content" class="paper">
 				<header class="identity">
 					<h1>Péter Szarvas</h1>
-					<p class="intro">I build software. And the things around it.</p>
+					<p class="intro">I build software.</p>
 					<address>
 						<a href="mailto:contact@peterszarvas.hu">contact@peterszarvas.hu</a>
 						<a href="https://github.com/peterszarvas94">github.com/peterszarvas94</a>
@@ -49,16 +49,6 @@ templ Page() {
 				</header>
 				@Career()
 				<div class="home-extra">
-					<section aria-labelledby="projects-heading">
-						<h2 id="projects-heading">A few things I've built</h2>
-						<ul class="projects">
-							<li><h3><a href="https://bandcash.app">Bandcash</a></h3><p>Events, expenses and fair payouts for music bands.</p></li>
-							<li><h3><a href="https://szarvaspongrac.hu">Pongrác Szarvas</a></h3><p>An artist's portfolio. A place for the work to speak.</p></li>
-							<li><h3><a href="https://szeremletanc.hu">Szeremle Tánc</a></h3><p>A home on the web for a folk dance group.</p></li>
-							<li><h3><a href="https://pantlikazenekar.hu">Pántlika Zenekar</a></h3><p>A website for a folk music band.</p></li>
-							<li><h3><a href="https://github.com/peterszarvas94/weddingsite">Wedding invitation</a></h3><p>A small website for a big day.</p></li>
-						</ul>
-					</section>
 					<section class="lore" aria-labelledby="lore-heading">
 						<h2 id="lore-heading">A little more of the story</h2>
 						<p>I started with servers, moved into applications, and kept wanting to understand the whole thing. These days that means building the interface, writing the backend, and keeping it running.</p>
@@ -95,7 +85,7 @@ templ Career() {
 				<div class="jobs">
 					<section class="job" aria-labelledby="ibm-heading">
 						<header class="job-head"><h3 id="ibm-heading">IBM / Kyndryl</h3><p class="dates"><time datetime="2020">2020</time>–<time datetime="2022">2022</time></p></header>
-						<ul><li>Managed Windows servers and hybrid Microsoft Azure environments.</li><li>Learned to keep things running, not just get them running.</li></ul>
+						<ul><li>Deployed and managed Windows servers and hybrid Microsoft Azure environments.</li></ul>
 					</section>
 				</div>
 			</div>
@@ -107,7 +97,7 @@ templ Career() {
 				<div class="jobs">
 					<section class="job" aria-labelledby="kyndryl-heading">
 						<header class="job-head"><h3 id="kyndryl-heading">Kyndryl</h3><p class="dates"><time datetime="2022">2022</time>–<time datetime="2024">2024</time></p></header>
-						<ul><li>Built an internal business lead tracker in a two-person team.</li><li>React, JavaScript and Java.</li></ul>
+						<ul><li>Maintained an internal business lead tracker in a two-person team.</li><li>React and JavaScript.</li></ul>
 					</section>
 					<section class="job" aria-labelledby="eviden-heading">
 						<header class="job-head"><h3 id="eviden-heading">Eviden / Atos</h3><p class="dates"><time datetime="2024">2024</time>–present</p></header>
@@ -122,11 +112,26 @@ templ Career() {
 				@Arrow()
 				<div class="jobs">
 					<section class="job" aria-labelledby="bandcash-heading">
-						<header class="job-head"><h3 id="bandcash-heading"><a href="https://bandcash.app">Bandcash</a></h3></header>
-						<p class="aside">Independent work, alongside my day job.</p>
+						<header class="job-head"><h3 id="bandcash-heading">Bandcash</h3></header>
 						<ul><li>Building and operating a payment splitting app for music bands.</li><li>Go, templ, Datastar, SQLite. From the first screen to deployment, with AI in the workflow.</li></ul>
 					</section>
-					<div class="job next"><p><a class="btn btn-amber" href="mailto:contact@peterszarvas.hu">Working with you?</a></p><p>Something useful, built together.</p></div>
+					<section class="job" aria-labelledby="pongrac-heading">
+						<header class="job-head"><h3 id="pongrac-heading">Szarvas Pongrác</h3></header>
+						<ul><li>An artist's portfolio. A place for the work to speak.</li></ul>
+					</section>
+					<section class="job" aria-labelledby="szeremle-heading">
+						<header class="job-head"><h3 id="szeremle-heading">Szeremle Tánc</h3></header>
+						<ul><li>A page for a folk dance group.</li></ul>
+					</section>
+					<section class="job" aria-labelledby="pantlika-heading">
+						<header class="job-head"><h3 id="pantlika-heading">Pántlika Zenekar</h3></header>
+						<ul><li>A website for a folk music band.</li></ul>
+					</section>
+					<section class="job" aria-labelledby="wedding-heading">
+						<header class="job-head"><h3 id="wedding-heading">Wedding invitation</h3></header>
+						<ul><li>A small website for a big day.</li></ul>
+					</section>
+					<div class="job next"><p><a class="btn btn-amber" href="mailto:contact@peterszarvas.hu">Your project?</a></p><ul><li>Something useful, built together.</li></ul></div>
 				</div>
 			</div>
 		</li>

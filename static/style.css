@@ -275,7 +275,6 @@ a {
 
   & p:first-child { display: flex; }
   & .btn { font-weight: var(--bold); }
-  & p + p { margin-top: var(--space-2); font-size: var(--text-small); color: var(--muted); }
 }
 
 /* Homepage extras, screen only */
@@ -287,14 +286,6 @@ a {
   & section + section, & footer { margin-top: var(--space-6); }
 }
 
-.projects {
-  margin-top: var(--space-4);
-  padding: 0;
-  list-style: none;
-
-  & li + li { margin-top: var(--space-4); }
-  & p { font-size: var(--text-small); color: var(--muted); }
-}
 
 .lore {
   & p { margin-top: var(--space-4); }
@@ -542,9 +533,8 @@ a {
     print-color-adjust: exact;
   }
 
-  /* Print keeps the projects from the homepage extras; the story and the call to action stay on screen. */
-  .page-nav, .skip-link, .next, .typesheet, .lore, .home-extra footer { display: none; }
-  .home-extra { break-inside: avoid; }
+  /* The story and the call to action stay on screen. */
+  .page-nav, .skip-link, .next, .typesheet, .home-extra { display: none; }
   /* Links stay clickable in the PDF but print as plain text. */
   a { text-decoration: none; }
 
