@@ -9,7 +9,19 @@ templ Page() {
 			<meta name="description" content="Péter Szarvas. From systems administration to full-stack development. Building simple software that works."/>
 			<title>Péter Szarvas</title>
 			<meta name="color-scheme" content="light"/>
+			<link rel="canonical" href="https://peterszarvas.hu/"/>
+			<link rel="icon" href="/favicon.ico" sizes="32x32"/>
 			<link rel="icon" type="image/svg+xml" href={ templ.SafeURL(faviconHref()) }/>
+			<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+			<meta property="og:type" content="website"/>
+			<meta property="og:url" content="https://peterszarvas.hu/"/>
+			<meta property="og:title" content="Péter Szarvas"/>
+			<meta property="og:description" content="I build software. And the things around it."/>
+			<meta property="og:image" content="https://peterszarvas.hu/static/brand/og.png"/>
+			<meta property="og:image:width" content="1200"/>
+			<meta property="og:image:height" content="630"/>
+			<meta property="og:image:alt" content="Péter Szarvas: I build software. And the things around it."/>
+			<meta name="twitter:card" content="summary_large_image"/>
 			<link rel="preload" href="/static/fonts/IBMPlexMono-Regular.ttf" as="font" type="font/ttf" crossorigin/>
 			<link rel="stylesheet" href={ templ.SafeURL(Stylesheet) }/>
 			<script type="module" src={ Script }></script>

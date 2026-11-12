@@ -16,7 +16,7 @@ var Script = "/static/sheet.js"
 // faviconHref draws the favicon once and inlines it as an SVG data URI,
 // so the icon ships inside the static HTML with no separate file.
 var faviconHref = sync.OnceValue(func() string {
-	svg, err := faviconSVG()
+	svg, err := LogoSVG()
 	if err != nil {
 		panic(fmt.Errorf("favicon: %w", err))
 	}

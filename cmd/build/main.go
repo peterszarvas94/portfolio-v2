@@ -69,10 +69,15 @@ func build() error {
 		return err
 	}
 
-	// The résumé PDF lives at the site root; everything else under /static/.
-	// The favicon is an SVG data URI inlined in the page (templates/favicon.templ).
+	// The résumé PDF and the icons clients look for by name live at the site root;
+	// everything else under /static/. The SVG favicon is inlined in the page (templates/assets.go).
 	if err := copyFile("static/resume.pdf", filepath.Join(outDir, "resume.pdf")); err != nil {
 		return fmt.Errorf("resume.pdf missing; run `mise run resume-pdf`: %w", err)
+	}
+	for _, name := range []string{"favicon.ico", "apple-touch-icon.png"} {
+		if err := copyFile(filepath.Join("static/brand", name), filepath.Join(outDir, name)); err != nil {
+			return fmt.Errorf("%s missing; run `mise run brand`: %w", name, err)
+		}
 	}
 	err := filepath.WalkDir("static", func(path string, d fs.DirEntry, err error) error {
 		if err != nil {

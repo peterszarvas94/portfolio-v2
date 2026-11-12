@@ -17,9 +17,19 @@ Career content lives in `templates/page.templ`. Employer year ranges come from t
 
 `static/style.css` uses native CSS nesting and shared `:root` variables. IBM Plex Mono has four text roles: title (24px, bold), section heading (20px, bold), body (16px, regular; company and project headings bold), and secondary text (13px, regular). Screen sizes use rem units. Dates, notes and project descriptions share the same muted style. Print overrides the four size tokens to 18/12/10/9pt. Change the role tokens rather than adding one-off sizes.
 
-## Favicon
+## Logo and icons
 
-The favicon is a "P" in IBM Plex Mono Bold, black on an amber square with an inked border. `templates/favicon.go` reads the bold font file at build time and converts the glyph outline to an SVG path (an SVG image cannot load web fonts), and the page inlines the result as an SVG data URI, so there is no favicon file.
+The logo is a "P" in IBM Plex Mono Bold, black on an amber square with an inked border. `templates/logo.go` reads the bold font file and converts the glyph outline to a path (an SVG image cannot load web fonts), then draws every format from it. The page inlines the SVG as a data URI for the favicon.
+
+`mise run brand` writes the files below to `static/brand/`; they are committed. Regenerate them after changing the logo, the name or the intro.
+
+| File | Use |
+| --- | --- |
+| `logo.svg` | The logo, scalable |
+| `logo.png` | The logo, 1024×1024 |
+| `apple-touch-icon.png` | 180×180, also served at `/apple-touch-icon.png` |
+| `favicon.ico` | 16, 32 and 48 px, also served at `/favicon.ico` |
+| `og.png` | 1200×630 link preview (`og:image`): logo, name, intro and domain |
 
 ## Résumé PDF
 
