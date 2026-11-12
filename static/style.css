@@ -271,7 +271,8 @@ a {
 .projects { container-type: inline-size; }
 
 @container (max-width: 24rem) {
-  .projects .site { flex-basis: 100%; }
+  /* The name takes the full row, so each URL wraps below it at its own width (its hover fill stays fitted). */
+  .projects .job-head h3 { flex-basis: 100%; }
 }
 
 /* Footer: the text and the button share a line and wrap cleanly. */
